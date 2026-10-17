@@ -1,0 +1,35 @@
+.selector-tema-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-fondo-superficie);
+  border: 2px solid var(--color-borde-general);
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+}
+
+.btn-tema {
+  background-color: var(--btn-primario-bg);
+  border: 1.5px solid var(--color-borde-general);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-texto-principal);
+  transition: all 0.15s ease;
+}
+
+.btn-tema:hover {
+  background-color: var(--btn-primario-bg);
+  transform: translateY(-2px);
+}
+
+.btn-tema.activo {
+  background-color: var(--btn-secundario-bg);
+  color: var(--color-texto-principal);
+  border-color: var(--color-borde-general);
+}

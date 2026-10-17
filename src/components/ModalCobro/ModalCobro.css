@@ -1,0 +1,235 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: var(--color-fondo-app);
+  border-radius: 16px;
+  width: 450px;
+  max-width: 90%;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-borde-general);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--color-texto-principal);
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--color-texto-principal);
+}
+
+.total-destacado {
+  background-color: var(--color-fondo-superficie);
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.total-destacado span {
+  font-size: 1rem;
+  color: var(--color-texto-principal);
+  font-weight: 600;
+}
+
+.total-destacado strong {
+  font-size: 1.6rem;
+  color: var(--color-texto-principal);
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.grid-metodos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-metodo {
+  background-color: var(--btn-primario-bg);
+  border: 2px solid var(--color-borde-general);
+  border-radius: 10px;
+  padding: 0.75rem 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--color-texto-principal);
+  transition: all 0.15s ease;
+}
+
+.btn-metodo:hover {
+  background-color: var(--btn-primario-bg-hover);
+}
+
+.btn-metodo.activo {
+  background-color: var(--btn-secundario-bg);
+  color: var(--color-texto-principal);
+  border-color: var(--color-borde-general);
+}
+
+.seccion-vuelto {
+  background-color: var(--color-fondo-superficie);
+  border: 1px dashed var(--color-borde-general);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  color: var(--color-texto-principal);
+}
+
+.input-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-field input {
+  width: 120px;
+  padding: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: right;
+  border: 2px solid var(--color-borde-general);
+  border-radius: 6px;
+}
+
+.vuelto-linea {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.vuelto-ok { color: #16a34a; }
+.vuelto-error { color: #dc2626; }
+
+.modal-footer {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-cancelar {
+  flex: 1;
+  background-color: var(--btn-primario-bg);
+  border: 2px solid var(--color-borde-general);
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--color-texto-principal);
+  transition: all 0.30s ease;
+}
+
+.btn-cancelar:hover {
+  background-color: var(--btn-primario-bg-hover);
+  transform: translateY(-2px);
+  border-color: var(--color-borde-general);
+  color: var(--color-texto-principal);
+  transition: all 0.30s ease;
+}
+
+.btn-confirmar {
+  flex: 2;
+  background-color: var(--btn-primario-bg);
+  border: 2px solid var(--color-borde-general);
+  color: var(--color-texto-principal);
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.30s ease;
+}
+
+.btn-confirmar:hover {
+  background-color: var(--btn-secundario-bg-hover);
+  transform: translateY(-2px);
+  border-color: var(--color-borde-general);
+  color: var(--color-texto-principal);
+}
+
+/* ESTILOS DEL TICKET TÉRMICO (TICKET FÍSICO) */
+.modal-ticket-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ticket-papel {
+  background-color: var(--color-fondo-superficie); /* Color estilo papel térmico */
+  border: 1px solid var(--color-borde-general);
+  padding: 1.25rem;
+  width: 280px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  color: var(--color-texto-principal);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.ticket-header-print, .ticket-footer-print {
+  text-align: center;
+}
+
+.ticket-header-print h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.ticket-linea-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.2rem 0;
+}
+
+.ticket-total-print {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.ticket-gracias {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.actions-ticket {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}

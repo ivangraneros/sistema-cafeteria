@@ -1,0 +1,25 @@
+:root {
+
+  --color-fondo-app: #ffffff;
+  --color-fondo-superficie: #d8e5dd;
+  --color-texto-principal: #1b2e23;
+  --color-texto-secundario: #526b5c;
+  --color-borde-general: #243b2d;
+  --btn-primario-bg: #2d6a4f;
+  --btn-secundario-bg: #bdd3c5;
+  --card-prod-bg: #f7faf8;
+  --card-prod-bg-active: #c5dccf;
+
+  /* Estados de Mesas */
+  --color-mesa-libre: #ecfdf5;
+  --color-mesa-libre-border: #10b981;
+  --color-mesa-libre-text: #047857;
+
+  --color-mesa-ocupada: #fef2f2;
+  --color-mesa-ocupada-border: #ef4444;
+  --color-mesa-ocupada-text: #b91c1c;
+
+  --color-mesa-cuenta: #fff7ed;
+  --color-mesa-cuenta-border: #f97316;
+  --color-mesa-cuenta-text: #c2410c;
+}
