@@ -83,15 +83,15 @@
 
 .tarjeta-mesa.estado-libre .mesa-status-badge {
   background-color: var(--color-mesa-libre-text);
-  color: var(--color-texto-principal);
+  color: #fff;
 }
 
 .tarjeta-mesa.estado-ocupada .mesa-status-badge {
   background-color: var(--color-mesa-ocupada-text);
-  color: var(--color-texto-principal);
+  color: #fff;
 }
 
 .tarjeta-mesa.estado-cuenta .mesa-status-badge {
   background-color: var(--color-mesa-cuenta-text);
-  color: var(--color-texto-principal);
+  color: #fff;
 }

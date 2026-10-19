@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import PRODUCTOS_INICIALES from '../../constants/productosIniciales';
+import PRODUCTOS_INICIALES from '../../constants/productosIniciales.js';
 import ModalCobro from '../ModalCobro/ModalCobro';
 import './POSLayout.css';
 
-function POSLayout({ mesa, onVolver, onAgregarProducto, onEnviarComanda, onCobrarMesa }) {
+function POSLayout({ mesa, onVolver, onAgregarProducto, onEnviarComanda, onCobrarMesa, onEliminarProducto, onPedirCuenta }) {
   const [busqueda, setBusqueda] = useState('');
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todos');
 
@@ -18,7 +18,6 @@ function POSLayout({ mesa, onVolver, onAgregarProducto, onEnviarComanda, onCobra
     return coincideNombre && coincideCategoria;
   });
 
-  
 
   return (
     <div className="pos-container">
@@ -27,6 +26,12 @@ function POSLayout({ mesa, onVolver, onAgregarProducto, onEnviarComanda, onCobra
           <button className="btn-volver" onClick={onVolver}>
             ← volver
           </button>
+          <button 
+              className="btn-cuenta" 
+              onClick={onPedirCuenta}
+              disabled={!mesa?.items || mesa.items.length === 0}>
+              pedir cuenta
+            </button>
           <span className="mesa-titulo">Mesa {mesa?.numero}</span>
         </div>
 
@@ -75,12 +80,17 @@ function POSLayout({ mesa, onVolver, onAgregarProducto, onEnviarComanda, onCobra
           <span>Producto</span>
           <span>cantidad</span>
         </div>
-
         
         <div className="ticket-items-lista">
           {mesa && mesa.items && mesa.items.length > 0 ? (
             mesa.items.map((item, index) => (
               <div key={item.id || index} className="ticket-item">
+                <button 
+                  className="btn-eliminar" 
+                  onClick={() => onEliminarProducto(item.id)}
+                  title="Eliminar producto">
+                  ✕
+                </button>
                 <span className="item-nombre">{item.nombre}</span>
                 <span className="item-cantidad">x{item.cantidad || 1}</span>
               </div>
@@ -89,7 +99,6 @@ function POSLayout({ mesa, onVolver, onAgregarProducto, onEnviarComanda, onCobra
             <p className="ticket-vacio">Sin consumos cargados</p>
           )}
         </div>
-
         
         <div className="ticket-footer">
           <div className="ticket-total-linea">

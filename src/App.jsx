@@ -66,6 +66,36 @@ function App() {
     );
   };
 
+  const handleEliminarProducto = (idProducto) => {
+    if (!mesaSeleccionada) return;
+
+    setMesas((prev) =>
+      prev.map((m) => {
+        if (m.id === mesaSeleccionada) {
+          const itemsExistentes = m.items || [];
+
+          const itemABorrar = itemsExistentes.find((i) => i.id === idProducto);
+          if (!itemABorrar) return m;
+
+          const nuevosItems = itemsExistentes.filter((i) => i.id !== idProducto);
+
+          const subtotalItem = itemABorrar.precio * (itemABorrar.cantidad || 1);
+          const nuevoTotal = Math.max(0, m.total - subtotalItem);
+
+          const nuevoEstado = nuevosItems.length === 0 ? 'libre' : 'ocupada';
+
+          return {
+            ...m,
+            estado: nuevoEstado,
+            items: nuevosItems,
+            total: nuevoTotal,
+          };
+        }
+        return m;
+      })
+    );
+  };
+
   const handleEnviarComanda = () => {
     alert ('Comanda enviada a cocina para la mesa ' + mesaActual?.numero)
   };
@@ -93,9 +123,23 @@ function App() {
         return m;
       })
     );
-
     handleVolver();
   };
+
+  const handlePedirCuenta = () => {
+    if (!mesaSeleccionada || !mesaActual?.items || mesaActual.items.length === 0) return;
+
+    setMesas((prev) =>
+      prev.map((m) => {
+        if (m.id === mesaSeleccionada) {
+          return { ...m, estado: 'cuenta' };
+        }
+        return m;
+      })
+    );
+    handleVolver();
+  };
+
 
   return (
     <div>
@@ -111,7 +155,9 @@ function App() {
             onVolver={handleVolver} 
             onAgregarProducto={handleAgregarProducto} 
             onEnviarComanda={handleEnviarComanda} 
-            onCobrarMesa={handleCobrarMesa} />
+            onCobrarMesa={handleCobrarMesa}
+            onEliminarProducto={handleEliminarProducto}
+            onPedirCuenta={handlePedirCuenta} />
           )}
       </main>
     </div>
