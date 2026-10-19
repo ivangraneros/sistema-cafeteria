@@ -6,7 +6,7 @@ import MESAS_INICIALES from './constants/mesasIniciales.js';
 import POSLayout from './components/POSLayout/POSLayout.jsx';
 
 // css
-import './components/layout/Header/Header.css';
+import './components/layout/Header/header.css';
 import './components/mapa/MapaMesas.jsx';
 import './components/mapa/TarjetaMesa.jsx';
 
