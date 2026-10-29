@@ -4,6 +4,7 @@ import Header from './components/layout/Header/Header.jsx';
 import MapaMesas from './components/mapa/MapaMesas.jsx';
 import MESAS_INICIALES from './constants/mesasIniciales.js';
 import POSLayout from './components/POSLayout/POSLayout.jsx';
+import Login from './components/login/Login.jsx';
 
 // css
 import './components/layout/Header/header.css';
@@ -21,6 +22,8 @@ function App() {
   const [ventasDelDia, setVentasDelDia] = useState([]);
 
   const mesaActual = mesas.find((m) => m.id === mesaSeleccionada);
+
+  const [estaLogueado, setEstaLogueado] = useState(false);
 
 
 
@@ -143,6 +146,10 @@ function App() {
 
   return (
     <div>
+      {!estaLogueado ? (
+        <Login onLoginSuccess={() => setEstaLogueado(true)} />
+      ) : (
+        <>
       <Header />
       <main>
         {vistaActual === 'MAPA' ? (
@@ -159,7 +166,9 @@ function App() {
             onEliminarProducto={handleEliminarProducto}
             onPedirCuenta={handlePedirCuenta} />
           )}
-      </main>
+        </main>
+        </>
+      )}
     </div>
   );
 }
